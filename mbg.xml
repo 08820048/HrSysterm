@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="default" targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/hrsystem?serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+<!--        <javaTypeResolver >-->
+<!--            <property name="forceBigDecimals" value="false" />-->
+<!--        </javaTypeResolver>-->
+
+        <javaModelGenerator targetPackage="cn.edu.hzvtc.entity" targetProject="./src">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="cn.edu.hzvtc.mapper"  targetProject="./src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.edu.hzvtc.dao"  targetProject="./src">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table schema="DB2ADMIN" tableName="tbl_department" domainObjectName="Department" >
+
+        </table>
+        <table schema="DB2ADMIN" tableName="tbl_employee" domainObjectName="Employee" >
+
+        </table>
+    </context>
+</generatorConfiguration>
