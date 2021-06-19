@@ -46,7 +46,6 @@ public class EmployeeController {
     @ResponseBody
     public ReturnMsg saveEmp(@Valid Employee employee, BindingResult bindingResult) {
 
-
         //数据绑定出错
         if (bindingResult.hasErrors()) {
             Map<String,Object> map = new HashMap<String,Object>();
@@ -146,7 +145,6 @@ public class EmployeeController {
         Employee employee = employeeService.getEmp(id);
         System.out.println("controller中的employee:"+employee+"-------------");
         return ReturnMsg.success().add("emp",employee);
-
     }
 
     @RequestMapping(value = "/emp/{empId}",method = RequestMethod.PUT)

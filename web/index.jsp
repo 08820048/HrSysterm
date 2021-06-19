@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   pageContext.setAttribute("App_Path",request.getContextPath());
@@ -22,6 +23,19 @@
   <![endif]-->
 </head>
 <body>
+<script type="text/javascript">
+  /*获取地址栏session参数*/
+  function GetSessionP(user){
+    var reg=new RegExp(("^|&")+user+"=([^?]*)(&|$)");
+    var p = window.location.search.substr(1).match(reg);
+    if(p!=null){
+      return unescape(p[2]);
+    }else{
+      return null;
+    }
+  }
+  alert(GetSessionP("user"));
+</script>
 <h1></h1>
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,7 +61,16 @@
           </ul>
         </li>
       </ul>
+      <c:if test="${sessionScope.user ne null}">
+      <span style="float: right;">${user} <span  class="label label-success" >在线</span> <button type="button" class="btn btn-default navbar-btn">登出</button></span>
+      </c:if>
+
+      <c:if test="${sessionScope.user eq null}">
+        <c:redirect url="${App_Path}"></c:redirect>
+        <span style="float: right;">未登录<span  class="label label-success" >离线</span> <button type="button" class="btn btn-default navbar-btn">登出</button></span>
+      </c:if>
     </div><!--/.nav-collapse -->
+
   </div>
 </nav>
 
@@ -73,4 +96,5 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
+
 </html>

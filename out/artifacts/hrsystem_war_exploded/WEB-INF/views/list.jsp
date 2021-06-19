@@ -216,7 +216,7 @@
         $.each(result.navigatepageNums,function (index,pgNum){
             var navPageLi = $("<li></li>").append($("<a></a>").append(pgNum));
 
-            if (result.pageNum == pgNum){
+            if (result.pageNum === pgNum){
                 navPageLi.addClass("active");
             }else {
                 navPageLi.click(function (){

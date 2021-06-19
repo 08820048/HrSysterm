@@ -181,10 +181,10 @@
            type:"PUT",
            dataType:"json",
            success:function (result) {
-               if(result.code==100){
+               if(result.code===100){
                    window.location.href="${App_Path}/list?pn="+pn;
                }else{
-                   if(result.extend.fieldErrors.empEmail!=undefined){
+                   if(result.extend.fieldErrors.empEmail!==undefined){
                        show_validate_msg("#empEmail_update_input","error",result.extend.fieldErrors.empEmail);
                    }
                }
@@ -192,114 +192,6 @@
 
        });
    });
-
-
-
-
-
-
-
-   <%--var checkNameflag=false;--%>
-   <%--  $("#emp_save_btn").click(function () {--%>
-   <%--      /*用户名如果不可以*/--%>
-   <%--      if (!checkNameflag) {--%>
-   <%--          return false;--%>
-   <%--      }--%>
-   <%--      var empName = $("#empName_add_input").val();--%>
-   <%--      var reg = /[\u4e00-\u9fa5_a-zA-Z]{2,5}$/;--%>
-   <%--      if (!reg.test(empName)) {--%>
-   <%--          show_validate_msg("#empName_add_input", "error", "用户名必须是2-5位中英文组合！");--%>
-   <%--          return false;--%>
-   <%--      } else {--%>
-   <%--          show_validate_msg("#empName_add_input", "success", "");--%>
-   <%--      }--%>
-   <%--      /*邮箱验证*/--%>
-   <%--      var empEmail = $("#empEmail_add_input").val();--%>
-   <%--      var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;--%>
-   <%--      if (!reg.test(empEmail)) {--%>
-   <%--          show_validate_msg("#empEmail_add_input", "error", "Email格式不正确hhh！");--%>
-   <%--          return false;--%>
-   <%--      } else {--%>
-   <%--          show_validate_msg("#empEmail_add_input", "success", "");--%>
-   <%--      }--%>
-   <%--      if ($("[name='empGender']:checked").length == 0) {--%>
-   <%--          show_validate_msg("[name='empGender']", "error", "请选择性别！");--%>
-   <%--          return false;--%>
-   <%--      } else {--%>
-   <%--          show_validate_msg("[name='empGender']", "success", "");--%>
-   <%--      }--%>
-   <%--      /*验证部门选择*/--%>
-   <%--      if ($("[name='dId']").val() === "") {--%>
-   <%--          show_validate_msg("[name='dId']", "error", "请选择部门!",);--%>
-   <%--          return false;--%>
-   <%--      } else {--%>
-   <%--          show_validate_msg("[name='dId']", "success", "");--%>
-   <%--      }--%>
-   <%--  });--%>
-   <%-- $("#empName_add_input").change(function () {--%>
-   <%--     $.ajax({--%>
-   <%--         url:"${App_Path}/checkName",--%>
-   <%--         data:{"empName":$(this).val()},--%>
-   <%--         type:"GET",--%>
-   <%--         dataType:"json",--%>
-   <%--         success:function (result) {--%>
-   <%--             if(result.code==100){--%>
-   <%--                 show_validate_msg("#empName_add_input","success",result.extend.msg);--%>
-   <%--                 checkNameflag=true;--%>
-   <%--             }else{--%>
-   <%--                 show_validate_msg("#empName_add_input","error",result.extend.msg)--%>
-   <%--                 checkNameflag=false;--%>
-   <%--             }--%>
-   <%--         }--%>
-   <%--     });--%>
-   <%-- })--%>
-
-
-
-
-
-        //与服务器交互的校验
-    <%--$("#emp_save_btn").click(function () {--%>
-    <%--    $.ajax({--%>
-    <%--        url: "${App_Path}/emp",--%>
-    <%--        data: $("form").serialize(),--%>
-    <%--        type: "POST",--%>
-    <%--        dataType: "json",--%>
-    <%--        success: function (result) {--%>
-    <%--            if (result.code === 100) {--%>
-    <%--                //重定向到员工信息列表页面--%>
-    <%--                alert(result.msg);--%>
-    <%--                window.location.href = "${App_Path}/list";--%>
-    <%--            } else {--%>
-    <%--                //姓名错误--%>
-    <%--                if (result.extend.fieldError.empName != undefined) {--%>
-    <%--                    $("#empName_add_input").parents("div.form-group").addClass("has-error");--%>
-    <%--                    $("#empName_add_input").parents("div.form-group").find("span.help-block").text(result.extend.fieldError.empName);--%>
-    <%--                    return false;--%>
-    <%--                }--%>
-    <%--                //Email错误--%>
-    <%--                if (result.extend.fieldError.empEmail != undefined) {--%>
-    <%--                    $("#empEmail_add_input").parents("div.form-group").addClass("has-error");--%>
-    <%--                    $("#empEmail_add_input").parents("div.form-group").find("span.help-block").text(result.extend.fieldError.empEmail);--%>
-    <%--                    return false;--%>
-    <%--                }--%>
-    <%--                //性别错误--%>
-    <%--                if (result.extend.fieldError.empGender != undefined) {--%>
-    <%--                    $("[name='empGender']").parents("div.form-group").addClass("has-error");--%>
-    <%--                    $("[name='empGender']").parents("div.form-group").find("span.help-block").text(result.extend.fieldError.empGender);--%>
-    <%--                    return false;--%>
-    <%--                }--%>
-    <%--                //部门错误--%>
-    <%--                if (result.extend.fieldError.dId != undefined) {--%>
-    <%--                    $("[name='dId']").parents("div.form-group").addClass("has-error");--%>
-    <%--                    $("[name='dId']").parents("div.form-group").find("span.help-block").text(result.extend.fieldError.dId);--%>
-    <%--                    return false;--%>
-    <%--                }--%>
-    <%--            }--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--});--%>
-
 
     /*提交函数*/
     function show_validate_msg(element, status, msg) {
