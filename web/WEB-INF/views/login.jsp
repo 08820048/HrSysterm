@@ -136,26 +136,6 @@
 
 
 
-    <%--$("#login_btn").click(function () {--%>
-    <%--   // var userName = $("#userName").val();--%>
-    <%--   // var userPassword=$("#userPassword").val();--%>
-    <%--   $.ajax({--%>
-    <%--       url:"${App_Path}/login",--%>
-    <%--       data:$("#login_form").serialize(),--%>
-    <%--       type:"POST",--%>
-    <%--       dataType:"json",--%>
-    <%--       success:function (result) {--%>
-    <%--           if(result.code==100){--%>
-    <%--               alert("登录信息"+result.extend.msg)--%>
-    <%--               window.location.href="${App_Path}/index.jsp";--%>
-    <%--           }else{--%>
-    <%--               show_validate_msg("#userName","error",result.extend.msg);--%>
-    <%--           }--%>
-
-    <%--       }--%>
-    <%--   });--%>
-    <%--});--%>
-
     /*信息反馈提示函数*/
     function show_validate_msg(element, status, msg) {
         var ctrl=$(element).parents("div.form-group");
