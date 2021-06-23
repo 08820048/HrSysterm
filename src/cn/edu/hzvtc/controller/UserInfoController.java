@@ -5,6 +5,7 @@ import cn.edu.hzvtc.entity.UserInfo;
 import cn.edu.hzvtc.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -97,4 +98,18 @@ public class UserInfoController {
         }
     }
 
+    /**
+     * 退出登录功能
+     * @param session
+     */
+    @RequestMapping("/loginout")
+    @ResponseBody
+    public ReturnMsg loginOut(HttpSession session){
+        if(session.getAttribute("user")!=null){
+            session.removeAttribute("user");
+            return ReturnMsg.success().add("msg", "成功退出！");
+        }else {
+            return ReturnMsg.fail().add("msg","用户session为空");
+        }
+    }
 }

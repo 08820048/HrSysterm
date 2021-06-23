@@ -51,25 +51,17 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox" style="margin-left: -90%">
                         <label>
-                            <input type="checkbox">记住我
+                            <span><a href="${App_Path}/registerInfo">没有账号？</a></span>
                         </label>
                     </div>
                 </div>
+
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <!-- Split button -->
                     <div class="btn-group" style="margin-right: 50%">
                         <button type="button" class="btn btn-primary" id="login_btn">登录</button>
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">忘记密码？</a></li>
-                            <li><a href="register.html">没有账号？</a></li>
-
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -125,7 +117,7 @@
                 success:function (result) {
                     if(result.code==100){
                         //alert("登录信息"+result.extend.user)
-                        window.location.href="${App_Path}/index.jsp?";
+                        window.location.href="${App_Path}/index.jsp";
                     }else{
                         show_validate_msg("#userName","error",result.extend.msg);
                     }

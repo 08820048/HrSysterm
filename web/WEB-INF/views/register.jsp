@@ -51,17 +51,19 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox" style="margin-left: -90%">
+                        <label>
+                            <span><a href="${App_Path}/loginInfo">已有帐号？</a></span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
                     <!-- Split button -->
                     <div class="btn-group" style="margin-right: 50%">
                         <button type="button"  id="btn_register" class="btn btn-primary">注册</button>
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="${App_Path}/login">已有帐号？</a></li>
-                            <!--                        <li><a href="#">没有账号？</a></li>-->
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -145,7 +147,7 @@ $("#btn_register").click(function () {
                     //alert("注册成功！！");
                     //show_validate_msg(".register_msg","error",result.extend.msg)
                     alert(result.extend.msg);
-                    window.location.href="${App_Path}/registerInfo";
+                    window.location.href="${App_Path}/loginInfo";
                 }else{
                     //alert(extend.msg);
                     show_validate_msg(".register_msg","error",result.extend.msg)

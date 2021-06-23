@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 86139
@@ -16,10 +17,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>HR System - 人力资源管理系统</title>
+    <title>HR System - 添加员工信息</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<%--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">--%>
+    <link rel="stylesheet" href="${App_Path}/static/bootstrap-3.37-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="${App_Path}/static/css/sticky-footer-navbar.css">
     <link rel="stylesheet" href="${App_Path}/static/bootstrap-select-1.13.9-dist/css/bootstrap-select.css">
     <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
@@ -56,6 +58,16 @@
                     </ul>
                 </li>
             </ul>
+            <c:if test="${sessionScope.user ne null}">
+                <span style="float: right;">${user} <span  class="label label-success" >在线</span> <button type="button" class="btn btn-warning navbar-btn" id="out_btn">登出</button></span>
+            </c:if>
+
+            <c:if test="${sessionScope.user eq null}">
+                <script type="text/javascript">
+                    window.location.href="${App_Path}/loginInfo";
+                </script>
+                <%--        <span style="float: right;">未登录<span  class="label label-success" >离线</span> <button type="button" class="btn btn-default navbar-btn">登出</button></span>--%>
+            </c:if>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -276,6 +288,18 @@
 
 
     /*前端表单校验结束*/
+    /*退出登录*/
+    $("#out_btn").click(function () {
+        $.ajax({
+            url:"${App_Path}/loginout",
+            type:"GET",
+            success:function (result) {
+                if(result.code==100){
+                    window.location.href="${App_Path}/loginInfo";
+                }
+            }
+        });
+    });
 </script>
 
 </body>
