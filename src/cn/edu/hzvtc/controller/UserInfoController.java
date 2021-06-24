@@ -49,6 +49,10 @@ public class UserInfoController {
         return "login";
     }
 
+    @RequestMapping("passwordInfo")
+    public String editpassword() {
+        return "editPassword";
+    }
     /**
      * 注册请求
      *
@@ -111,5 +115,49 @@ public class UserInfoController {
         }else {
             return ReturnMsg.fail().add("msg","用户session为空");
         }
+    }
+
+    @RequestMapping("/sendcode")
+    @ResponseBody
+    public ReturnMsg sendSMSCode(@RequestParam("userTelephone")String userTelephone,HttpSession session){
+        System.out.println("控制层手机号："+userTelephone);
+        if(userInfoService.sendCodeMsg(userTelephone,session)){
+            return ReturnMsg.success().add("msg","发送成功！");
+        }else {
+            return ReturnMsg.fail().add("msg","发送失败，请稍候再试！");
+        }
+    }
+
+
+    /**
+     * 修改密码前的手机号检查
+     * @param userTelephone
+     * @return
+     */
+    @RequestMapping("/checkuserTelephone")
+    @ResponseBody
+    public ReturnMsg checkuserTelephone(@RequestParam("userTelephone") String userTelephone) {
+        /*验证用户名非空，符合验证规则*/
+        /*验证用户名是否重复*/
+        if (userInfoService.checkUserTelephone(userTelephone)) {
+            return ReturnMsg.success().add("msg", "手机号可用！");
+        }else {
+            return ReturnMsg.fail().add("msg", "手机号不存在，请检查！");
+        }
+    }
+
+    @RequestMapping("/editUserPassword")
+    @ResponseBody
+    public ReturnMsg editUserPassword( @RequestParam("userPassword") String userPassword,@RequestParam("userTelephone")String userTelephone,@RequestParam("userCode")String userCode,HttpSession session){
+        String code = (String)session.getAttribute("code");
+        if(!userCode.equals(code)){
+            return ReturnMsg.fail().add("msg", "验证码不正确！");
+        }
+        if (userCode.equals(code)){
+            if(userInfoService.editPassword(userPassword, userTelephone, userCode)){
+                return ReturnMsg.success().add("msg","修改成功!");
+            }
+        }
+        return ReturnMsg.fail().add("msg","修改失败！");
     }
 }

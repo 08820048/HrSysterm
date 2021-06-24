@@ -37,6 +37,14 @@
 
             <div class="form-group">
                 <span class="help-block" style="margin-left: -200px"> </span>
+                <label for="input_telephone" class="col-sm-2 control-label">手机号</label>
+                <div class="col-sm-10">
+                    <input type="text" style="width: 500px" class="form-control" name="userTelephone" id="input_telephone" required placeholder="11位手机号"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="help-block" style="margin-left: -200px"> </span>
                 <label for="input_username" class="col-sm-2 control-label">用户名</label>
                 <div class="col-sm-10">
                     <input type="text" style="width: 500px" class="form-control" name="userName" id="input_username" required placeholder="2-5为中英文字符组成"/>
@@ -135,7 +143,15 @@ $("#btn_register").click(function () {
     }else{
         show_validate_msg("#input_password","success","");
     }
-
+    /*手机号校验*/
+    var userTelephone = $("#input_telephone").val();
+    var reg = /1\d{10}/;
+    if(!reg.test(userTelephone)){
+        show_validate_msg("#input_telephone","error","手机号由11为数字组成！");
+        return false;
+    }else{
+        show_validate_msg("#input_telephone","success","");
+    }
     $(function () {
         $.ajax({
             url:"${App_Path}/register",

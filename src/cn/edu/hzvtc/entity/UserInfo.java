@@ -12,20 +12,20 @@ public class UserInfo {
     private String userName;
     /*密码*/
     private String userPassword;
-    /*激活码*/
-    private  String activeCode;
-    /*状态码*/
-    private String userStatus;
+    /*手机号*/
+    private  String userTelephone;
+    /*验证码*/
+    private String userCode;
 
     public UserInfo() {
     }
 
-    public UserInfo(Integer userId, String userName, String userPassword, String activeCode, String userStatus) {
+    public UserInfo(Integer userId, String userName, String userPassword, String userTelephone, String userCode) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
-        this.activeCode = activeCode;
-        this.userStatus = userStatus;
+        this.userTelephone = userTelephone;
+        this.userCode = userCode;
     }
 
     public Integer getUserId() {
@@ -52,20 +52,20 @@ public class UserInfo {
         this.userPassword = userPassword;
     }
 
-    public String getActiveCode() {
-        return activeCode;
+    public String getUserTelephone() {
+        return userTelephone;
     }
 
-    public void setActiveCode(String activeCode) {
-        this.activeCode = activeCode;
+    public void setUserTelephone(String userTelephone) {
+        this.userTelephone = userTelephone;
     }
 
-    public String getUserStatus() {
-        return userStatus;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setUserStatus(String userStatus) {
-        this.userStatus = userStatus;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @Override
@@ -74,8 +74,8 @@ public class UserInfo {
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
-                ", activeCode='" + activeCode + '\'' +
-                ", userStatus='" + userStatus + '\'' +
+                ", userTelephone='" + userTelephone + '\'' +
+                ", userCode='" + userCode + '\'' +
                 '}';
     }
 }

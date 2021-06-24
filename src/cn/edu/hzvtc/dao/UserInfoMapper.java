@@ -35,7 +35,7 @@ public interface UserInfoMapper {
 
     List<UserInfo> selectByuserName(@Param("userName") String userName);
 
-    Integer updateByPrimaryKey(UserInfo userInfo);
+    Integer updatePasswordByTelephone(@Param("userPassword")String userPassword,@Param("userTelephone")String userTelephone);
 
     /**
      * 查询用户名和密码
@@ -43,5 +43,13 @@ public interface UserInfoMapper {
      * @return
      */
     UserInfo selectByuserAndPassword(@Param("userName") String userName, @Param("userPassword") String userPassword);
+
+    /**
+     * 查询手机号 用于判断是否可以修改密码
+     * @param userTelephone
+     * @return
+     */
+    List<UserInfo> selectByuserTelephone(@Param("userTelephone") String userTelephone);
+
 
 }
