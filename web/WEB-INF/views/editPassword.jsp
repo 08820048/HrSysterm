@@ -72,16 +72,6 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
 <!--内容主题范围-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
         integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
@@ -158,10 +148,10 @@ $("#btn_password").click(function () {
             dataTpe:"json",
             success:function (result) {
                 if(result.code==100){
-                 alert(result.extend.msg);
+                 alert(result.extend.msg,"即将跳转登录...");
                  window.location.href="${App_Path}/loginInfo";
                 }else{
-                    show_validate_msg(".register_msg","error",result.extend.msg)
+                    show_validate_msg("#input_code","error",result.extend.msg)
                 }
             }
         });

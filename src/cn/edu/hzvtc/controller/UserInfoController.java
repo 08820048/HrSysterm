@@ -150,8 +150,10 @@ public class UserInfoController {
     @ResponseBody
     public ReturnMsg editUserPassword( @RequestParam("userPassword") String userPassword,@RequestParam("userTelephone")String userTelephone,@RequestParam("userCode")String userCode,HttpSession session){
         String code = (String)session.getAttribute("code");
-        if(!userCode.equals(code)){
+        if(!userCode.equals(code) && code!=null){
             return ReturnMsg.fail().add("msg", "验证码不正确！");
+        }else if (code==null){
+            return ReturnMsg.fail().add("msg", "验证码已过期，请重新操作！");
         }
         if (userCode.equals(code)){
             if(userInfoService.editPassword(userPassword, userTelephone, userCode)){

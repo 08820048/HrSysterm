@@ -115,10 +115,10 @@ public class EmployeeController {
     public ReturnMsg emps(@RequestParam(value = "pn",defaultValue = "1") Integer pageNum) {
         try {
             /*调用strtpage方法，启用分页查询功能，随后的第一个*/
-            PageHelper.startPage(pageNum, 5);
+            PageHelper.startPage(pageNum, 10);
             List<Employee> employees = employeeService.getAll();
             /*使用分页信息对象可以对查询结果进行封装，可以通过PageInfo对象获取分页数据以及相关分页属性*/
-            PageInfo pageInfo = new PageInfo(employees, 5);
+            PageInfo pageInfo = new PageInfo(employees, 10);
             return ReturnMsg.success().add("pageInfo", pageInfo);
         } catch (Exception e) {
             return ReturnMsg.fail();

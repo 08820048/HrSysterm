@@ -61,7 +61,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox" style="margin-left: -90%">
                         <label>
-                            <span><a href="${App_Path}/loginInfo">已有帐号？</a></span>
+                            <span><a href="${App_Path}/loginInfo"  style="text-decoration: none">已有帐号？</a></span>
                         </label>
                     </div>
                 </div>
@@ -160,14 +160,10 @@ $("#btn_register").click(function () {
             dataType:"json",
             success:function (result) {
                 if(result.code===100){
-                    //alert("注册成功！！");
-                    //show_validate_msg(".register_msg","error",result.extend.msg)
                     alert(result.extend.msg);
                     window.location.href="${App_Path}/loginInfo";
                 }else{
-                    //alert(extend.msg);
-                    show_validate_msg(".register_msg","error",result.extend.msg)
-                    //alert(extend.msg);
+                    show_validate_msg("#input_telephone","error",result.extend.msg)
                 }
             }
         });

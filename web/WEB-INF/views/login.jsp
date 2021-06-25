@@ -23,7 +23,9 @@
 
     <style>
         body{text-align:center}
-
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body class="bg-info">
@@ -51,7 +53,10 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox" style="margin-left: -90%">
                         <label>
-                            <span><a href="${App_Path}/registerInfo">没有账号？</a></span>
+                            <span><a href="${App_Path}/registerInfo" style="text-decoration: none" >没有账号？</a></span>
+                        </label>
+                        <label>
+                            <span><a href="${App_Path}/passwordInfo"  style="text-decoration: none">忘记密码？</a></span>
                         </label>
                     </div>
                 </div>

@@ -202,7 +202,7 @@
             success: function (result) {
                 if (result.code === 100) {
                     //重定向到员工信息列表页面
-                    alert(result.msg);
+                    //alert(result.msg);
                     window.location.href = "${App_Path}/list";
                 } else {
                     //姓名错误
