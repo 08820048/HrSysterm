@@ -23,11 +23,11 @@ public class SDKTestSendTemplateSMS {
         CCPRestSDK restAPI = new CCPRestSDK();
         restAPI.init("app.cloopen.com", "8883");
         // 初始化服务器地址和端口，生产环境配置成app.cloopen.com，端口是8883.
-        restAPI.setAccount("8aaf070879f030fc017a1ded96890dae", "3697c27663ff4fd8a444459f8965a17c");
+        restAPI.setAccount("", "");
         // 初始化主账号名称和主账号令牌，登陆云通讯网站后，可在控制首页中看到开发者主账号ACCOUNT SID和主账号令牌AUTH TOKEN。
-        restAPI.setAppId("8aaf070879f030fc017a1ded97610db4");
+        restAPI.setAppId("");
         // 请使用管理控制台中已创建应用的APPID。
-        result = restAPI.sendTemplateSMS("18212629751","1" ,new String[]{codes,"2"});
+        result = restAPI.sendTemplateSMS("","1" ,new String[]{codes,"2"});
         System.out.println("SDKTestGetSubAccounts result=" + result);
         if("000000".equals(result.get("statusCode"))){
             //正常返回输出data包体信息（map）

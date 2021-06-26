@@ -128,8 +128,10 @@ public class UserInfoService {
             restAPI.setAppId("");
             // 请使用管理控制台中已创建应用的APPID
             result = restAPI.sendTemplateSMS(userTelephone, "1", new String[]{codes, "2"});
+            /*将验证码存入session*/
             session.setAttribute("code",codes);
-            //HttpSession session = request.getSession();
+            /*设置验证码有效期为2分钟*/
+            session.setMaxInactiveInterval(120);
             System.out.println("服务层resultL:"+result);
             if ("000000".equals(result.get("statusCode"))) {
                 flag = true;
