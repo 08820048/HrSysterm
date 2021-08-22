@@ -1,6 +1,17 @@
-# HrSysterm
+## HrSystem
+### 说明：
 在校实训做的一个基于ssm的人力资源管理系统，功能简单，长期更新优化,旨在学习。
-选用技术：基于ssm框架+bootstrap3.4+ajax异步+JSP+JSTL
+
+### 技术选型：
+基于***ssm框架***+***bootstrap3.4***+***ajax异步***+***JSP+JSTL***。
+
+## 功能概览：
+- 注册&登录
+- 密码修改功能(集成短信验证码)
+- 人员信息的增删改查
+- 登出(session原理)
+- 持续更新ing....
+
 
 <p align="center">
     <a href="#投稿"><img src="https://img.shields.io/badge/在校-实训-blue.svg" alt="投稿"></a>
