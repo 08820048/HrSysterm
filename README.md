@@ -21,6 +21,4 @@
   <a href="#投稿"><img src="https://img.shields.io/badge/框架-SSM-orange.svg" alt="投稿"></a>
   <a href="#投稿"><img src="https://img.shields.io/badge/Ajax-异步-yellow.svg" alt="投稿"></a>
   <a href="#投稿"><img src="https://img.shields.io/badge/数据库-MySql-red.svg" alt="投稿"></a>
-  
-  
 </p>
