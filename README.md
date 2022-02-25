@@ -14,13 +14,15 @@
 
 ## 关于
 > 对应的数据库文件请移步公众号回复关键词【hrsystem】自取。
-公众号：**code不良人**
+公众号：<font color=red>**代码不良人**</font>
+****
+****
 
 
 
 <p align="center">
     <a href="#投稿"><img src="https://img.shields.io/badge/在校-实训-blue.svg" alt="投稿"></a>
-  <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-白码手记-lightgrey.svg" alt="公众号"></a>
+  <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-代码不良人-lightgrey.svg" alt="公众号"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/语言-Java-important.svg" alt="公众号"></a>
   <a href="#投稿"><img src="https://img.shields.io/badge/support-持续优化-green.svg" alt="投稿"></a>
   <a href="#投稿"><img src="https://img.shields.io/badge/框架-SSM-orange.svg" alt="投稿"></a>
