@@ -14,7 +14,7 @@
 
 ## 关于
 > 对应的数据库文件请移步公众号回复关键词【hrsystem】自取。
-公众号：<font color=red>**代码不良人**</font>
+公众号：<font color=red>**八尺妖剑**</font>
 ****
 
 
